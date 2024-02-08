@@ -1,0 +1,17 @@
+.play-area {
+    position: relative;
+    height: 700px;
+    width: 900px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+.back-wall {
+    position: absolute;
+    height: 500px;
+    width: 600px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}

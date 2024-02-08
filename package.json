@@ -1,0 +1,26 @@
+{
+  "name": "char-inv",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "practice join table between character and items",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sql",
+    "js",
+    "html",
+    "css",
+    "postgresql",
+    "express"
+  ],
+  "author": "SteamedMilkbun",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "pg": "^8.11.3"
+  }
+}
