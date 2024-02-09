@@ -62,6 +62,7 @@ const fetchAllItemsJSON = async () => {
 }
 
 const showCharItems = async (char) => {
+    ciContainer.empty();
     const items = await fetchAllItemsForCharJSON(char.char_id);
     for(let item of items){
         const ciDiv = document.createElement("div");
