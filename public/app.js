@@ -10,6 +10,7 @@ const showChar = async() => {
             const charDiv = document.createElement(`<div>${char.char_name}</div>`);
             charContainer.append(charDiv);
         }
+        document.body.appendChild(charContainer);
     }
     catch(err){
         console.error(err);
