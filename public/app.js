@@ -9,7 +9,7 @@ const showChar = async() => {
         const chars = await fetchAllCharactersJSON();
         for(let char of chars){
             const charDiv = document.createElement("div");
-            charDiv.textContent = char.char_name;
+            //charDiv.textContent = char.char_name;
             charContainer.append(charDiv);
         }
     }
