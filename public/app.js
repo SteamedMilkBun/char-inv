@@ -1,7 +1,7 @@
 const subcontainer = document.getElementsByClassName("subcontainer");
-const charContainer = document.getElementsByClassName("char-container");
-const itemContainer = document.getElementsByClassName("item-container");
-const ciContainer = document.getElementsByClassName("char-item-container");
+const charContainer = document.getElementById("char-container");
+const itemContainer = document.getElementById("item-container");
+const ciContainer = document.getElementById("char-item-container");
 const body = document.getElementsByTagName('body');
 
 const showChar = async() => {
@@ -9,7 +9,7 @@ const showChar = async() => {
         const chars = await fetchAllCharactersJSON();
         for(let char of chars){
             const charDiv = document.createElement("div");
-            //charDiv.textContent = char.char_name;
+            charDiv.textContent = char.char_name;
             charContainer.appendChild(charDiv);
         }
     }

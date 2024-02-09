@@ -17,14 +17,14 @@
     border-width: 1px;
 }
 
-.char-container {
+#char-container {
     border-color: aqua;
 }
 
-.item-container {
+#item-container {
     border-color: blue;
 }
 
-.char-item-container {
+#char-item-container {
     border-color: brown;
 }
