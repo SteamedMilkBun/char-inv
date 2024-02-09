@@ -8,7 +8,8 @@ const showChar = async() => {
     try {
         const chars = await fetchAllCharactersJSON();
         for(let char of chars){
-            const charDiv = document.createElement(`<div>${char.char_name}</div>`);
+            const charDiv = document.createElement("div");
+            charDiv.textContent = char.char_name;
             charContainer.append(charDiv);
         }
     }
@@ -18,29 +19,10 @@ const showChar = async() => {
     }
 }
 
-// const showChar = () => {
-//     fetch("character")
-//     .then((results)=>{
-//         console.log(results.rows);
-//         return results.json();
-//     })
-//     .then((chars)=>{
-//         for(let char of chars){
-//             const charDiv = document.createElement(`<div>${char.char_name}</div>`);
-//             charContainer.append(charDiv);
-//         }
-//         body.append(charContainer)
-//     })
-//     .catch((err)=>{
-//         console.error(err);
-//         res.sendStatus(500);
-//     })
-// }
-
 const fetchAllCharactersJSON = async () => {
     try {
         const response = await fetch("character");
-        console.log(response.rows);
+        console.log(response);
         const chars = await response.json();
         return chars;
     }
