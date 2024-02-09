@@ -22,7 +22,6 @@ const showChar = async() => {
 const fetchAllCharactersJSON = async () => {
     try {
         const response = await fetch("character");
-        console.log(response);
         const chars = await response.json();
         return chars;
     }
@@ -50,7 +49,6 @@ const showItem = async() => {
 const fetchAllItemsJSON = async () => {
     try {
         const response = await fetch("item");
-        console.log(response);
         const items = await response.json();
         return items;
     }
@@ -61,3 +59,4 @@ const fetchAllItemsJSON = async () => {
 }
 
 showChar();
+showItem();
