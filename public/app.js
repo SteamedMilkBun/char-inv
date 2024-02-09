@@ -62,7 +62,7 @@ const fetchAllItemsJSON = async () => {
 }
 
 const showCharItems = async (char) => {
-    clearDiv(ciContainer);
+    ciContainer.replaceChild();
     const items = await fetchAllItemsForCharJSON(char.char_id);
     for(let item of items){
         const ciDiv = document.createElement("div");
@@ -83,11 +83,6 @@ const fetchAllItemsForCharJSON = async (id) => {
         console.error(err);
         res.sendStatus(500);
     }
-}
-
-const clearDiv = (divID) => {
-    const divToDelete = document.getElementById(divID);
-    divToDelete.replaceChildren();
 }
 
 showChar();
