@@ -27,10 +27,10 @@ pool.connect()
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    console.log('Welcome');
-    res.json('Welcome');
-})
+// app.get('/', (req, res) => {
+//     console.log('Welcome');
+//     res.json('Welcome');
+// })
 
 app.get('/character', (req, res) => {
     pool.query(`SELECT * FROM character`)
