@@ -32,4 +32,32 @@ const fetchAllCharactersJSON = async () => {
     }
 }
 
+const showItem = async() => {
+    try {
+        const items = await fetchAllItemsJSON();
+        for(let item of items){
+            const itemDiv = document.createElement("div");
+            itemDiv.textContent = item.item_name;
+            itemContainer.appendChild(itemDiv);
+        }
+    }
+    catch(err){
+        console.error(err);
+        res.sendStatus(500);
+    }
+}
+
+const fetchAllItemsJSON = async () => {
+    try {
+        const response = await fetch("item");
+        console.log(response);
+        const items = await response.json();
+        return items;
+    }
+    catch(err){
+        console.error(err);
+        res.sendStatus(500);
+    }
+}
+
 showChar();
