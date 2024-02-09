@@ -10,7 +10,7 @@ const showChar = async() => {
         for(let char of chars){
             const charDiv = document.createElement("div");
             //charDiv.textContent = char.char_name;
-            charContainer.append(charDiv);
+            charContainer.appendChild(charDiv);
         }
     }
     catch(err){
