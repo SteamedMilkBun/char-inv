@@ -1,21 +1,31 @@
 import express from 'express';
 import pg from 'pg';
-/*import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-dotenv.config();*/
+dotenv.config();
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
+const pgConnect = `postgresql://postgres:postgres@localhost:6432/char_inv_db`;
+
+const pgURI = process.env.DATABASE_URL || pgConnect;
+console.log("pgURI: ", pgURI);
+
+const pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+});
+
+pool.connect()
+    .then((client) => {
+        console.log(`Connected to postgres using connection string ${process.env.DATABASE_URL}`);
+        client.release();
+    })
+    .catch((err)=>{
+        console.log("Failed to connect to postgres: ", err.message);
+    })
 
 const app = express();
 app.use(express.json());
-
-const pool = new pg.Pool({
-    host: "localhost",
-    port: 6432,
-    user: "postgres",
-    password: "postgres",
-    database: "char_inv_db"
-});
 
 app.get('/', (req, res) => {
     console.log('Welcome');
@@ -192,7 +202,7 @@ app.delete('/item/:id', (req, res) => {
         res.status(400).send(`${req.params.id} is NaN`);
         return;
     }
-
+    
     pool.query(`DELETE FROM item WHERE item_id = $1 RETURNING *`, [id])
     .then((data) => {
         if (data.rows.length === 0) {
@@ -205,6 +215,99 @@ app.delete('/item/:id', (req, res) => {
         console.log(err);
         res.sendStatus(500);
     })
+})
+
+app.get('/ci', async (req, res) => {
+    try {
+        const result = await pool.query(`select c.char_id, c.char_name, i.item_id, i.item_name, i.item_value, ci.qty 
+                                        FROM char_item ci 
+                                        JOIN character c 
+                                        ON ci.char_id = c.char_id 
+                                        JOIN item i 
+                                        ON ci.item_id = i.item_id;
+                                        `)
+        console.log(result.rows);
+        res.json(result.rows);
+    }
+    catch(err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+})
+
+app.get('/ci/:char_id', async (req, res) => {
+    const char_id = Number.parseInt(req.params.char_id);
+
+    if (Number.isNaN(char_id)) {
+        res.status(400).send(`${req.params.char_id} is NaN`);
+        return;
+    }
+
+    try {
+        const result = await pool.query(`SELECT c.char_name, i.item_name, ci.qty
+                                        FROM char_item ci
+                                        JOIN character c
+                                        ON ci.char_id = c.char_id
+                                        JOIN item i
+                                        ON ci.item_id = i.item_id
+                                        WHERE ci.char_id = $1`, [char_id])
+        console.log(result.rows);
+        res.json(result.rows);
+    }
+    catch(err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+})
+
+app.get('/ci/:char_id/:item_id', async (req, res) => {
+    const char_id = Number.parseInt(req.params.char_id);
+    const item_id = Number.parseInt(req.params.item_id);
+
+    if (Number.isNaN(char_id)) {
+        res.status(400).send(`${req.params.char_id} is NaN`);
+        return;
+    }
+
+    try {
+        const result = await pool.query(`SELECT c.char_name, i.item_name, ci.qty
+                                        FROM char_item ci
+                                        JOIN character c
+                                        ON ci.char_id = c.char_id
+                                        JOIN item i
+                                        ON ci.item_id = i.item_id
+                                        WHERE ci.char_id = $1 AND ci.item_id = $2`, [char_id, item_id])
+        console.log(result.rows[0]);
+        res.json(result.rows[0]);
+    }
+    catch(err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+})
+
+app.patch('/ci/:char_id/:item_id', async (req, res) => {
+    const char_id = Number.parseInt(req.params.char_id);
+    const item_id = Number.parseInt(req.params.item_id);
+    const qty = Number.parseInt(req.body.qty);
+
+    if (Number.isNaN(char_id)) {
+        res.status(400).send(`${req.params.char_id} is NaN`);
+        return;
+    }
+
+    try {
+        const result = await pool.query(`UPDATE char_item ci SET
+                                        qty = COALESCE($1, qty)
+                                        WHERE ci.char_id = $2 AND ci.item_id = $3 RETURNING *`,
+                                        [qty, char_id, item_id])
+        console.log(result.rows[0]);
+        res.json(result.rows[0]);
+    }
+    catch(err){
+        console.error(err);
+        res.sendStatus(500);
+    }
 })
 
 app.listen(PORT, () => {

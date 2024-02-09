@@ -1,17 +1,30 @@
 .play-area {
-    position: relative;
-    height: 700px;
-    width: 900px;
-    border-style: solid;
-    border-width: 3px;
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "char-container char-item-container item-container";
+    border-style: inset;
     border-color: black;
+    border-width: 3px;
+    height: 700px;
 }
 
-.back-wall {
-    position: absolute;
-    height: 500px;
-    width: 600px;
+.subcontainer {
+    justify-content: center;
+    align-items: center;
     border-style: solid;
-    border-width: 2px;
-    border-color: black;
+    border-width: 1px;
+}
+
+.char-container {
+    border-color: aqua;
+}
+
+.item-container {
+    border-color: blue;
+}
+
+.char-item-container {
+    border-color: brown;
 }
