@@ -2,6 +2,7 @@ const subcontainer = document.getElementsByClassName("subcontainer");
 const charContainer = document.getElementsByClassName("char-container");
 const itemContainer = document.getElementsByClassName("item-container");
 const ciContainer = document.getElementsByClassName("char-item-container");
+const body = document.getElementsByTagName('body');
 
 const showChar = async() => {
     try {
@@ -10,7 +11,7 @@ const showChar = async() => {
             const charDiv = document.createElement(`<div>${char.char_name}</div>`);
             charContainer.append(charDiv);
         }
-        document.body.appendChild(charContainer);
+        body.appendChild(charContainer);
     }
     catch(err){
         console.error(err);
