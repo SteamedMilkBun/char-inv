@@ -28,11 +28,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-// app.get('/', (req, res) => {
-//     console.log('Welcome');
-//     res.json('Welcome');
-// })
-
 app.get('/character', (req, res) => {
     pool.query(`SELECT * FROM character`)
     .then((data) => {

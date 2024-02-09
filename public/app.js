@@ -10,6 +10,9 @@ const showChar = async() => {
         for(let char of chars){
             const charDiv = document.createElement("div");
             charDiv.textContent = char.char_name;
+            charDiv.addEventListener('click', () => {
+                showCharItems(char);
+            })
             charContainer.appendChild(charDiv);
         }
     }
@@ -49,6 +52,28 @@ const showItem = async() => {
 const fetchAllItemsJSON = async () => {
     try {
         const response = await fetch("item");
+        const items = await response.json();
+        return items;
+    }
+    catch(err){
+        console.error(err);
+        res.sendStatus(500);
+    }
+}
+
+const showCharItems = async (char) => {
+    const items = await fetchAllItemsForCharJSON(char.char_id);
+    for(let item of items){
+        const ciDiv = document.createElement("div");
+        ciDiv.textContent = item;
+        ciContainer.appendChild(ciDiv);
+    }
+}
+
+const fetchAllItemsForCharJSON = async (id) => {
+    console.log(`char id: ${id}`);
+    try {
+        const response = await fetch(`ci/${id}`);
         const items = await response.json();
         return items;
     }
