@@ -6,10 +6,10 @@ dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 
-const pgConnect = `postgresql://postgres:postgres@localhost:6432/char_inv_db`;
+// const pgConnect = `postgresql://postgres:postgres@localhost:6432/char_inv_db`;
 
-const pgURI = process.env.DATABASE_URL || pgConnect;
-console.log("pgURI: ", pgURI);
+// const pgURI = process.env.DATABASE_URL || pgConnect;
+// console.log("pgURI: ", pgURI);
 
 const pool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
