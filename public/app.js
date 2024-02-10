@@ -77,7 +77,7 @@ const listItemDetails = (item, ciDiv) => {//appends key and value of each detail
         const key = detail;
         const value = Object.values(detail);
         const detailDiv = document.createElement("div");
-        detailDiv.innerText = key, value;
+        detailDiv.innerText = value;
         ciDiv.appendChild(detailDiv);
     }
 }
