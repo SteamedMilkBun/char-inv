@@ -69,12 +69,17 @@ const showCharItems = async (char) => {
         // console.log(itemsArr[0]["char_name"]);
         
         for(let index = 0; index < itemsArr.length; index++) {
-            const ciDiv = document.createElement("div");
-            ciDiv.setAttribute("id", "ciDiv"); 
+            
             // console.log(`index: ${index}`);
             console.log("items[index]: ", itemsArr[index]);
-            ciDiv.innerText = itemsArr[index];
-            ciContainer.appendChild(ciDiv);
+            //itemsArr[index] is an object. I want to display all properties in ciDiv
+            for(let item in itemsArr[index]){
+                console.log("current item: ", item);
+                const ciDiv = document.createElement("div");
+                ciDiv.setAttribute("id", "ciDiv"); 
+                ciDiv.innerText = item;
+                ciContainer.appendChild(ciDiv);
+            }
         }
     }
     catch(err){
