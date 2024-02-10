@@ -69,17 +69,8 @@ const showCharItems = async (char) => {
         console.log("creating item div")
         const ciDiv = document.createElement("div");
         ciDiv.classList.add("ciDiv");
-
-        const itemNameDiv = document.createElement("div");
-
-        const itemNameKey = document.createElement("div");
-        itemNameKey.innerHTML = item;
+        ciDiv.innerHTML = item;
         
-        const itemNameValue = document.createElement("div");
-        itemNameValue.innerHTML = Object.values(item);
-
-        itemNameDiv.appendChild(itemNameKey, itemNameValue);
-        ciDiv.appendChild(itemNameDiv);
         ciContainer.appendChild(ciDiv);
     }
 }
