@@ -75,8 +75,8 @@ const showCharItems = async (char) => {
             // console.log("items[index]: ", items[index]);
             const ciDivText = itemsArr[index];
             ciDiv.innerText = ciDivText;
+            ciContainer.appendChild(ciDiv);
         }
-        ciContainer.appendChild(ciDiv);
     }
     catch(err){
         console.error(err);
