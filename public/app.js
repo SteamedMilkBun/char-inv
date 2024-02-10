@@ -77,7 +77,7 @@ const listItemDetails = (item, ciDiv) => {//appends key and value of each detail
         const key = detail;
         const value = Object.values(detail);
         const detailDiv = document.createElement("div");
-        detailDiv.innerText = value;
+        detailDiv.innerText = (`${key}: ${value}`);
         ciDiv.appendChild(detailDiv);
     }
 }
@@ -87,6 +87,7 @@ const fetchAllItemsForCharJSON = async (id) => {
     try {
         const response = await fetch(`ci/${id}`);
         const items = await response.json();
+        console.log("items: ", items);
         return items;
     }
     catch(err){
