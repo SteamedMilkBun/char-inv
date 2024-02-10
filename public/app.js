@@ -68,12 +68,12 @@ const showCharItems = async (char) => {
         // console.log(itemsArr[0]);
         // console.log(itemsArr[0]["char_name"]);
         
-        for(let index = 0; index < items.length; index++) {
+        for(let index = 0; index < itemsArr.length; index++) {
             const ciDiv = document.createElement("div");
             ciDiv.setAttribute("id", "ciDiv"); 
             // console.log(`index: ${index}`);
             // console.log("items[index]: ", items[index]);
-            const ciDivText = items[index];
+            const ciDivText = itemsArr[index];
             ciDiv.innerText = ciDivText;
         }
         ciContainer.appendChild(ciDiv);
