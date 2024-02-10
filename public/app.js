@@ -65,26 +65,10 @@ const showCharItems = async (char) => {
     ciContainer.replaceChildren();
     try{
         const items = await fetchAllItemsForCharJSON(char.char_id);
-
+        console.log(items[0]);
+        console.log(items[0][0]);
         const ciDiv = document.createElement("div");
         ciDiv.setAttribute("id", "ciDiv"); 
-        for (let i in items){
-            console.log(`current index i: ${i} of items`)
-            for (let item in i){
-                console.log(`current item: ${item} of index i: ${i}`);
-                // const cNameDiv = document.createElement("div");
-                // cNameDiv.classList.add("subcontainer");
-                // cNameDiv.innerHTML = (item, ": ", item.char_name);
-                // const iNameDiv = document.createElement("div");
-                // iNameDiv.innerHTML = (item, ": ", item.item_name);
-                // iNameDiv.classList.add("subcontainer");
-                // const qtyDiv = document.createElement("div");
-                // qtyDiv.classList.add("subcontainer");
-                // qtyDiv.innerHTML = (item, ": ", item.qty);
-                // ciDiv.appendChild(cNameDiv, iNameDiv, qtyDiv);
-            }
-            
-        }
         ciContainer.appendChild(ciDiv);
     }
     catch(err){
