@@ -76,20 +76,20 @@ const showCharItems = async (char) => {
             const ciDiv = document.createElement("div");
             ciDiv.setAttribute("id", "ciDiv"); 
             const properties = Object.entries(itemsArr[index]);
-            
+
             const char = document.createElement("div");
             char.classList.add("ciProperties");
-            char.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            char.innerHTML = (`${properties[0]}`);
             ciDiv.appendChild(char);
 
             const item = document.createElement("div");
             item.classList.add("ciProperties");
-            item.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            item.innerHTML = (`${properties[1]}`);
             ciDiv.appendChild(item);
 
             const qty = document.createElement("div");
             qty.classList.add("ciProperties");
-            qty.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            qty.innerHTML = (`${properties[2]}`);
             ciDiv.appendChild(qty);
 
             ciContainer.appendChild(ciDiv);
