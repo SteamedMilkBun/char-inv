@@ -65,9 +65,10 @@ const showCharItems = async (char) => {
     ciContainer.replaceChildren();
     const items = await fetchAllItemsForCharJSON(char.char_id);
     for(let item of items){
+        console.log("creating item div")
         const ciDiv = document.createElement("div");
         const itemDetails = item[0];
-        ciDiv.textContent = itemDetails;
+        ciDiv.innerText = itemDetails;
         ciContainer.appendChild(ciDiv);
     }
 }
