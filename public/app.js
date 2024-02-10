@@ -67,15 +67,19 @@ const showCharItems = async (char) => {
     for(let item of items){
         console.log("creating item div")
         const ciDiv = document.createElement("div");
-        const itemDetails = listItemDetails(item);
+        const itemDetails = listItemDetails(item, ciDiv);
         ciDiv.innerText = itemDetails;
         ciContainer.appendChild(ciDiv);
     }
 }
 
-const listItemDetails = (item) => {
+const listItemDetails = (item, ciDiv) => {
     for (let detail in item) {
-        console.log(detail);
+        const key = detail;
+        const value = Object.value(detail);
+        const detailDiv = document.createElement("div");
+        detailDiv.innerText = key, value;
+        ciDiv.appendChild(detailDiv);
     }
 }
 
