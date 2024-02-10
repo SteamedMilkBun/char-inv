@@ -67,9 +67,15 @@ const showCharItems = async (char) => {
     for(let item of items){
         console.log("creating item div")
         const ciDiv = document.createElement("div");
-        const itemDetails = item;
+        const itemDetails = listItemDetails(item);
         ciDiv.innerText = itemDetails;
         ciContainer.appendChild(ciDiv);
+    }
+}
+
+const listItemDetails = (item) => {
+    for (let detail in item) {
+        console.log(detail);
     }
 }
 
@@ -77,7 +83,6 @@ const fetchAllItemsForCharJSON = async (id) => {
     console.log(`char id: ${id}`);
     try {
         const response = await fetch(`ci/${id}`);
-        console.log("response: ", response);
         const items = await response.json();
         return items;
     }
