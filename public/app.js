@@ -77,6 +77,7 @@ const fetchAllItemsForCharJSON = async (id) => {
     console.log(`char id: ${id}`);
     try {
         const response = await fetch(`ci/${id}`);
+        console.log("response: ", response);
         const items = await response.json();
         return items;
     }
