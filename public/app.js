@@ -64,21 +64,12 @@ const fetchAllItemsJSON = async () => {
 const showCharItems = async (char) => {
     ciContainer.replaceChildren();
     const items = await fetchAllItemsForCharJSON(char.char_id);
+    console.log(items);
     for(let item of items){
         console.log("creating item div")
         const ciDiv = document.createElement("div");
-        listItemDetails(item, ciDiv);
+        ciDiv.innerHTML = (`item name: ${item.item_name}, qty: ${item.qty}`);
         ciContainer.appendChild(ciDiv);
-    }
-}
-
-const listItemDetails = (item, ciDiv) => {//appends key and value of each detail in item to ciDiv
-    for (let detail in item) {
-        const key = detail;
-        const value = Object.values(detail);
-        const detailDiv = document.createElement("div");
-        detailDiv.innerText = (`${key}: ${value}`);
-        ciDiv.appendChild(detailDiv);
     }
 }
 
