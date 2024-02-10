@@ -75,7 +75,23 @@ const showCharItems = async (char) => {
             //itemsArr[index] is an object. I want to display all properties in ciDiv
             const ciDiv = document.createElement("div");
             ciDiv.setAttribute("id", "ciDiv"); 
-            ciDiv.innerText = (Object.entries(itemsArr[index]));
+            const properties = Object.entries(itemsArr[index]);
+            
+            const char = document.createElement("div");
+            char.classList.add("ciProperties");
+            char.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            ciDiv.appendChild(char);
+
+            const item = document.createElement("div");
+            item.classList.add("ciProperties");
+            item.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            ciDiv.appendChild(item);
+
+            const qty = document.createElement("div");
+            qty.classList.add("ciProperties");
+            qty.innerHTML = (`${properties[0]}, ${properties[3]}`);
+            ciDiv.appendChild(qty);
+
             ciContainer.appendChild(ciDiv);
         }
     }

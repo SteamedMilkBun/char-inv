@@ -31,6 +31,9 @@
 
 #ciDiv {
     display: flex;
+}
+
+.ciProperties {
     border-style: solid;
-    border-radius: 3px;
+    border-radius: 5px;
 }
