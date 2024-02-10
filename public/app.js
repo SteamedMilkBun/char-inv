@@ -70,7 +70,7 @@ const showCharItems = async (char) => {
         const ciDiv = document.createElement("div");
         ciDiv.setAttribute("id", "ciDiv"); 
         
-        for(let index = 0; index < items.length; i++) {
+        for(let index = 0; index < items.length; index++) {
             console.log(`index: ${index}`);
             console.log(`items[index]: ${items[index]}`);
         }
