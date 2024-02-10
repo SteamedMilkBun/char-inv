@@ -232,6 +232,7 @@ app.get('/ci', async (req, res) => {
 })
 
 app.get('/ci/:char_id', async (req, res) => {
+    console.log(`hit get char/${req.params.char_id}`);
     const char_id = Number.parseInt(req.params.char_id);
 
     if (Number.isNaN(char_id)) {
