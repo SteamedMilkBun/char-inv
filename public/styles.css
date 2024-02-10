@@ -28,3 +28,9 @@
 #char-item-container {
     border-color: brown;
 }
+
+#ciDiv {
+    display: flex;
+    border-style: solid;
+    border-radius: 3px;
+}
