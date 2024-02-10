@@ -63,7 +63,7 @@ const fetchAllItemsJSON = async () => {
 
 const showCharItems = async (char) => {
     ciContainer.replaceChildren();
-    try{
+    try {
         const items = await fetchAllItemsForCharJSON(char.char_id);
         console.log(items[0]);
         console.log(items[0]["char_name"]);
@@ -73,6 +73,9 @@ const showCharItems = async (char) => {
         for(let index = 0; index < items.length; index++) {
             console.log(`index: ${index}`);
             console.log("items[index]: ", items[index]);
+            for(let item = 0; item <= index; item++) {
+                console.log(`item: ${item} @ index: ${index}`);
+            }
         }
         //ciContainer.appendChild(ciDiv);
     }
