@@ -67,7 +67,7 @@ const showCharItems = async (char) => {
     for(let item of items){
         console.log("creating item div")
         const ciDiv = document.createElement("div");
-        const itemDetails = item[0];
+        const itemDetails = item;
         ciDiv.innerText = itemDetails;
         ciContainer.appendChild(ciDiv);
     }
