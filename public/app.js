@@ -77,7 +77,7 @@ const showCharItems = async (char) => {
                 console.log("current key: ", key);
                 const ciDiv = document.createElement("div");
                 ciDiv.setAttribute("id", "ciDiv"); 
-                ciDiv.innerText = (key, Objects.values(itemsArr[index]));
+                ciDiv.innerText = (key, Object.values(itemsArr[index]));
                 ciContainer.appendChild(ciDiv);
             }
         }
