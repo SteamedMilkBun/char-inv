@@ -72,7 +72,7 @@ const showCharItems = async (char) => {
         
         for(let index = 0; index < items.length; index++) {
             console.log(`index: ${index}`);
-            console.log(`items[index]: ${String(items[index])}`);
+            console.log("items[index]: ", items[index]);
         }
         //ciContainer.appendChild(ciDiv);
     }
