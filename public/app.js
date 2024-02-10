@@ -72,7 +72,7 @@ const showCharItems = async (char) => {
             const ciDiv = document.createElement("div");
             ciDiv.setAttribute("id", "ciDiv"); 
             // console.log(`index: ${index}`);
-            console.log("items[index]: ", items[index]);
+            console.log("items[index]: ", itemsArr[index]);
             ciDiv.innerText = itemsArr[index];
             ciContainer.appendChild(ciDiv);
         }
