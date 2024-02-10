@@ -67,6 +67,12 @@ const showCharItems = async (char) => {
         const items = await fetchAllItemsForCharJSON(char.char_id);
         console.log(items[0]);
         console.log(items[0]["char_name"]);
+        for(let index of items){
+            console.log(`items at current index ${index}: items[index]`);
+            for(let item in index){
+                console.log(`current item in index ${index}: ${index[item]}`)
+            }
+        }
         const ciDiv = document.createElement("div");
         ciDiv.setAttribute("id", "ciDiv"); 
         ciContainer.appendChild(ciDiv);
