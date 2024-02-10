@@ -68,7 +68,7 @@ const showCharItems = async (char) => {
         console.log(items[0]);
         console.log(items[0]["char_name"]);
         for(let index of items){
-            console.log(`items at current index ${index}: items[index]`);
+            console.log(`items at current index: ${items[index]}`);
             for(let item in index){
                 console.log(`current item in index ${index}: ${index[item]}`)
             }
