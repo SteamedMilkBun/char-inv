@@ -68,17 +68,20 @@ const showCharItems = async (char) => {
 
         const ciDiv = document.createElement("div");
         ciDiv.setAttribute("id", "ciDiv"); 
-        for (let item in items){
-            const cNameDiv = document.createElement("div");
-            cNameDiv.classList.add("subcontainer");
-            cNameDiv.innerHTML = (item, ": ", item.char_name);
-            const iNameDiv = document.createElement("div");
-            iNameDiv.innerHTML = (item, ": ", item.item_name);
-            iNameDiv.classList.add("subcontainer");
-            const qtyDiv = document.createElement("div");
-            qtyDiv.classList.add("subcontainer");
-            qtyDiv.innerHTML = (item, ": ", item.qty);
-            ciDiv.appendChild(cNameDiv, iNameDiv, qtyDiv);
+        for (let i in items){
+            for (let item in i){
+                const cNameDiv = document.createElement("div");
+                cNameDiv.classList.add("subcontainer");
+                cNameDiv.innerHTML = (item, ": ", item.char_name);
+                const iNameDiv = document.createElement("div");
+                iNameDiv.innerHTML = (item, ": ", item.item_name);
+                iNameDiv.classList.add("subcontainer");
+                const qtyDiv = document.createElement("div");
+                qtyDiv.classList.add("subcontainer");
+                qtyDiv.innerHTML = (item, ": ", item.qty);
+                ciDiv.appendChild(cNameDiv, iNameDiv, qtyDiv);
+            }
+            
         }
         ciContainer.appendChild(ciDiv);
     }
