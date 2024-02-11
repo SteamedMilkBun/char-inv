@@ -50,6 +50,5 @@
 }
 
 .inputDiv {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
 }
