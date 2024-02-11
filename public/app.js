@@ -77,11 +77,12 @@ const showCharItems = async (char) => {
             ciDiv.setAttribute("id", "ciDiv"); 
             const values = Object.values(itemsArr[index]);
 
-            const char = document.createElement("div");
+            const char_id = values[0];
+            const item_id = values[2];
 
             const item = document.createElement("div");
             item.classList.add("ciValues");
-            item.innerHTML = (`${values[0]}`);
+            item.innerHTML = (`${values[3]}`);
 
             const qty = document.createElement("div");
             qty.classList.add("ciValues");
@@ -101,12 +102,13 @@ const showCharItems = async (char) => {
             submitButton.textContent = "Submit";
             submitButton.addEventListener('click', (event) => {
                 console.log("submitting: ", input.value);
+                console.log(char_id, item_id);
                 console.log("event target: ", event.target.value);
             })
 
             inputDiv.append(input, submitButton);
 
-            qty.innerHTML = (`${values[1]}`);
+            qty.innerHTML = (`${values[4]}`);
             ciDiv.append(item, qty, inputDiv);
 
             ciContainer.appendChild(ciDiv);
