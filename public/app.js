@@ -10,7 +10,7 @@ const showChar = async() => {
         for(let char of chars){
             const charDiv = document.createElement("div");
             charDiv.textContent = char.char_name;
-            charDiv.setAttribute("id", "ciValues");
+            charDiv.classList.add("ciValues");
             charDiv.addEventListener('click', () => {
                 showCharItems(char);
             })
