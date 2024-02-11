@@ -101,7 +101,7 @@ const showCharItems = async (char) => {
             submitButton.textContent = "Submit";
             submitButton.addEventListener('click', (event) => {
                 console.log("submitting: ", input.value);
-                console.log("event target: ", event.target);
+                console.log("event target: ", event.target.value);
             })
 
             inputDiv.append(input, submitButton);
