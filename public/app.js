@@ -82,7 +82,6 @@ const showCharItems = async (char) => {
             const item = document.createElement("div");
             item.classList.add("ciValues");
             item.innerHTML = (`${values[0]}`);
-            ciDiv.appendChild(item);
 
             const qty = document.createElement("div");
             qty.classList.add("ciValues");
@@ -108,7 +107,7 @@ const showCharItems = async (char) => {
             inputDiv.appendChild(input, submitButton);
 
             qty.innerHTML = (`${values[1]}`);
-            ciDiv.appendChild(qty);
+            ciDiv.appendChild(item, qty, inputDiv);
 
             ciContainer.appendChild(ciDiv);
         }
