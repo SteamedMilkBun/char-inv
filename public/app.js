@@ -107,7 +107,7 @@ const showCharItems = async (char) => {
             inputDiv.append(input, submitButton);
 
             qty.innerHTML = (`${values[1]}`);
-            ciDiv.appendChild(item, qty, inputDiv);
+            ciDiv.append(item, qty, inputDiv);
 
             ciContainer.appendChild(ciDiv);
         }
