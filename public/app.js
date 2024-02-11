@@ -162,6 +162,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
         };
         const updatedQty = await fetch(url, options);
         console.log("should be results.rows[0], or new qty: ", updatedQty);
+        showCharItems();
     }
     catch(err){
         console.error("Patch request error: ", err);
