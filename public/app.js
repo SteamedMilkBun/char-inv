@@ -40,7 +40,7 @@ const showItem = async() => {
         const items = await fetchAllItemsJSON();
         for(let item of items){
             const itemDiv = document.createElement("div");
-            itemDiv.setAttribute("id", "ciValues");
+            itemDiv.classList.add("ciValues");
             itemDiv.textContent = item.item_name;
             itemContainer.appendChild(itemDiv);
         }
