@@ -100,10 +100,11 @@ const showCharItems = async (char) => {
 
             const submitButton = document.createElement("button");
             submitButton.textContent = "Submit";
-            submitButton.addEventListener('click', (event) => {
+            submitButton.addEventListener('click', () => {
                 console.log("submitting: ", input.value);
+                const inputVal = input.value;
                 console.log(char_id, item_id);
-                console.log("event target: ", event.target.textContent);
+                patchQty(char_id, item_id, input.value);
             })
 
             inputDiv.append(input, submitButton);
@@ -132,6 +133,37 @@ const fetchAllItemsForCharJSON = async (id) => {
         console.error(err);
         res.sendStatus(500);
     }
+}
+
+const patchQty = async (char_id, item_id, inputVal) => {
+    try {
+        const url = `https://transaction-webservice.onrender.com/ci/${char_id}/${item_id}`;
+        
+        const bodyString= {
+            "char_id": char_id,
+            "item_id": item_id,
+            "qty": inputVal
+        };
+        console.log("Body string: ", bodyString);
+
+        const bodyJSON = JSON.parse(bodyString);
+        console.log("JSON body: ", bodyJSON);
+
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: bodyJSON
+        };
+        const updatedQty = await fetch(url, options);
+        console.log("should be results.rows[0], or new qty: ", updatedQty);
+    }
+    catch(err){
+        console.error("Patch request error: ", err);
+        res.sendStatus(500);
+    }
+    
 }
 
 showChar();
