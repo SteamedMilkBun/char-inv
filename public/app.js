@@ -101,14 +101,14 @@ const showCharItems = async (char) => {
             const submitButton = document.createElement("button");
             submitButton.textContent = "Submit";
             submitButton.addEventListener('click', () => {
-                if(input.textContent = ""){
+                console.log("submitting: ", input.value);
+                const inputVal = Number.parseInt(input.value);
+                if(inputVal.isNaN){
                     alert("Please enter a value");
                     return;
                 }
-                console.log("submitting: ", input.value);
-                const inputVal = input.value;
                 console.log(char_id, item_id);
-                patchQty(char_id, item_id, input.value);
+                patchQty(char_id, item_id, inputVal);
             })
 
             inputDiv.append(input, submitButton);
@@ -146,7 +146,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
         const bodyString= {
             "char_id": char_id,
             "item_id": item_id,
-            "qty": Number.parseInt(inputVal)
+            "qty": inputVal
         };
         console.log("Body string: ", bodyString);
 
