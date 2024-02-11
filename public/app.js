@@ -118,11 +118,11 @@ const fetchAllItemsForCharJSON = async (id) => {
     }
 }
 
-const patchInputDiv = (target,ciDiv) => {
-    console.log("event.target: ", target);
+const patchInputDiv = (targetDiv,ciDiv) => {
+    console.log("event.target: ", targetDiv);
     const patchDiv = document.createElement("div");
     patchDiv.classList.add("ciProperties");
-    patchDiv.innerHTML = ("input field with submit buttom to change: ", target);
+    patchDiv.innerHTML = ("input field with submit buttom to change: ", targetDiv.textContent);
     ciDiv.appendChild(patchDiv);
 }
 
