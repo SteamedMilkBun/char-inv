@@ -42,3 +42,13 @@
     border-radius: 5px;
     padding: 1em;
 }
+
+#patchQty {
+    border-style: dotted;
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+.inputDiv {
+    display: flex;
+}

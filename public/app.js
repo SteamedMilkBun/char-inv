@@ -87,8 +87,25 @@ const showCharItems = async (char) => {
             const qty = document.createElement("div");
             qty.classList.add("ciValues");
 
-            const qtyForm = document.createElement("form");
-            
+            const patchDiv = document.createElement("div");
+            patchDiv.classList.add("ciValues");
+
+            const inputDiv = document.createElement("div");
+            inputDiv.classList.add("inputDiv");
+
+            const input = createElement("input");
+            input.setAttribute("id", "patchQty");
+            input.setAttribute("type", "text");
+            input.setAttribute("placeholder", "new qty");
+
+            const submitButton = createElement("button");
+            submitButton.textContent = "Submit";
+            submitButton.addEventListener('click', (event) => {
+                console.log("submitting: ", input.value);
+                console.log("event target: ", event.target);
+            })
+
+            inputDiv.appendChild(input, submitButton);
 
             qty.innerHTML = (`${values[1]}`);
             ciDiv.appendChild(qty);
