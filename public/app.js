@@ -101,6 +101,10 @@ const showCharItems = async (char) => {
             const submitButton = document.createElement("button");
             submitButton.textContent = "Submit";
             submitButton.addEventListener('click', () => {
+                if(input.textContent = ""){
+                    alert("Please enter a value");
+                    return;
+                }
                 console.log("submitting: ", input.value);
                 const inputVal = input.value;
                 console.log(char_id, item_id);
@@ -142,7 +146,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
         const bodyString= {
             "char_id": char_id,
             "item_id": item_id,
-            "qty": inputVal
+            "qty": Number.parseInt(inputVal)
         };
         console.log("Body string: ", bodyString);
 
