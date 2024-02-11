@@ -161,7 +161,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
             body: bodyJSON
         };
         const response = await fetch(url, options);
-        const updatedQty = response.json();
+        const updatedQty = await response.json();
         console.log("updatedQty: ", updatedQty);
         console.log("updatedQty.rows[0]: ", updatedQty.rows[0]);
     }
