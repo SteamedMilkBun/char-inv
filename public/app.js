@@ -10,6 +10,7 @@ const showChar = async() => {
         for(let char of chars){
             const charDiv = document.createElement("div");
             charDiv.textContent = char.char_name;
+            charDiv.setAttribute("id", "ciValues");
             charDiv.addEventListener('click', () => {
                 showCharItems(char);
             })
@@ -39,6 +40,7 @@ const showItem = async() => {
         const items = await fetchAllItemsJSON();
         for(let item of items){
             const itemDiv = document.createElement("div");
+            itemDiv.setAttribute("id", "ciValues");
             itemDiv.textContent = item.item_name;
             itemContainer.appendChild(itemDiv);
         }
