@@ -51,4 +51,5 @@
 
 .inputDiv {
     display: flex;
+    flex-wrap: wrap;
 }
