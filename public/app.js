@@ -81,15 +81,16 @@ const showCharItems = async (char) => {
 
             const item = document.createElement("div");
             item.classList.add("ciValues");
-            item.innerHTML = (`${values[1]}`);
+            item.innerHTML = (`${values[0]}`);
             ciDiv.appendChild(item);
 
             const qty = document.createElement("div");
             qty.classList.add("ciValues");
-            qty.addEventListener('click', (event) => {
-                patchInputDiv(event.target, ciDiv);
-            })
-            qty.innerHTML = (`${values[2]}`);
+
+            const qtyForm = document.createElement("form");
+            
+
+            qty.innerHTML = (`${values[1]}`);
             ciDiv.appendChild(qty);
 
             ciContainer.appendChild(ciDiv);
@@ -113,14 +114,6 @@ const fetchAllItemsForCharJSON = async (id) => {
         console.error(err);
         res.sendStatus(500);
     }
-}
-
-const patchInputDiv = (targetDiv,ciDiv) => {
-    console.log("event.target: ", targetDiv);
-    const patchDiv = document.createElement("div");
-    patchDiv.classList.add("ciValues");
-    patchDiv.innerHTML = ("input field with submit buttom to change: ", targetDiv.textContent);
-    ciDiv.appendChild(patchDiv);
 }
 
 showChar();
