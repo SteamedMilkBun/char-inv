@@ -146,7 +146,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
         };
         console.log("Body string: ", bodyString);
 
-        const bodyJSON = JSON.parse(bodyString);
+        const bodyJSON = JSON.stringify(bodyString);
         console.log("JSON body: ", bodyJSON);
 
         const options = {
