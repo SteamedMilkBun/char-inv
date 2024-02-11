@@ -62,6 +62,7 @@ const fetchAllItemsJSON = async () => {
 }
 
 const showCharItems = async (char) => {
+    console.log(char);
     ciContainer.replaceChildren();
     try {
         const itemsArr = await fetchAllItemsForCharJSON(char.char_id);
@@ -163,7 +164,7 @@ const patchQty = async (char_id, item_id, inputVal) => {
         const response = await fetch(url, options);
         const updatedQty = await response.json();
         console.log("updatedQty: ", updatedQty);
-        console.log("updatedQty.rows[0]: ", updatedQty.rows[0]);
+        showCharItems(updatedQty);
     }
     catch(err){
         console.error("Patch request error: ", err);
