@@ -139,7 +139,7 @@ const fetchAllItemsForCharJSON = async (id) => {
     }
 }
 
-const patchQty = async (char_id, item_id, inputVal) => {
+const patchQty = async (char_id, item_id, inputVal) => { 
     try {
         const url = `https://transaction-webservice.onrender.com/ci/${char_id}/${item_id}`;
         
@@ -160,9 +160,10 @@ const patchQty = async (char_id, item_id, inputVal) => {
             },
             body: bodyJSON
         };
-        const updatedQty = await fetch(url, options);
-        console.log("should be results.rows[0], or new qty: ", updatedQty);
-        showCharItems();
+        const response = await fetch(url, options);
+        const updatedQty = response.json();
+        console.log("updatedQty: ", updatedQty);
+        console.log("updatedQty.rows[0]: ", updatedQty.rows[0]);
     }
     catch(err){
         console.error("Patch request error: ", err);
