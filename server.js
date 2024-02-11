@@ -241,10 +241,8 @@ app.get('/ci/:char_id', async (req, res) => {
     }
 
     try {
-        const result = await pool.query(`SELECT c.char_name, i.item_name, ci.qty
+        const result = await pool.query(`SELECT i.item_name, ci.qty
                                         FROM char_item ci
-                                        JOIN character c
-                                        ON ci.char_id = c.char_id
                                         JOIN item i
                                         ON ci.item_id = i.item_id
                                         WHERE ci.char_id = $1`, [char_id])

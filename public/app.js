@@ -72,27 +72,24 @@ const showCharItems = async (char) => {
             
             // console.log(`index: ${index}`);
             console.log("items[index]: ", itemsArr[index]);
-            //itemsArr[index] is an object. I want to display all properties in ciDiv
+            //itemsArr[index] is an object. I want to display all values in ciDiv
             const ciDiv = document.createElement("div");
             ciDiv.setAttribute("id", "ciDiv"); 
-            const properties = Object.entries(itemsArr[index]);
+            const values = Object.values(itemsArr[index]);
 
             const char = document.createElement("div");
-            char.classList.add("ciProperties");
-            char.innerHTML = (`${properties[0]}`);
-            ciDiv.appendChild(char);
 
             const item = document.createElement("div");
-            item.classList.add("ciProperties");
-            item.innerHTML = (`${properties[1]}`);
+            item.classList.add("ciValues");
+            item.innerHTML = (`${values[1]}`);
             ciDiv.appendChild(item);
 
             const qty = document.createElement("div");
-            qty.classList.add("ciProperties");
+            qty.classList.add("ciValues");
             qty.addEventListener('click', (event) => {
                 patchInputDiv(event.target, ciDiv);
             })
-            qty.innerHTML = (`${properties[2]}`);
+            qty.innerHTML = (`${values[2]}`);
             ciDiv.appendChild(qty);
 
             ciContainer.appendChild(ciDiv);
@@ -121,7 +118,7 @@ const fetchAllItemsForCharJSON = async (id) => {
 const patchInputDiv = (targetDiv,ciDiv) => {
     console.log("event.target: ", targetDiv);
     const patchDiv = document.createElement("div");
-    patchDiv.classList.add("ciProperties");
+    patchDiv.classList.add("ciValues");
     patchDiv.innerHTML = ("input field with submit buttom to change: ", targetDiv.textContent);
     ciDiv.appendChild(patchDiv);
 }
