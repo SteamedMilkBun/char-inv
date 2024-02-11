@@ -93,12 +93,12 @@ const showCharItems = async (char) => {
             const inputDiv = document.createElement("div");
             inputDiv.classList.add("inputDiv");
 
-            const input = createElement("input");
+            const input = document.createElement("input");
             input.setAttribute("id", "patchQty");
             input.setAttribute("type", "text");
             input.setAttribute("placeholder", "new qty");
 
-            const submitButton = createElement("button");
+            const submitButton = document.createElement("button");
             submitButton.textContent = "Submit";
             submitButton.addEventListener('click', (event) => {
                 console.log("submitting: ", input.value);
