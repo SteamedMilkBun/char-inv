@@ -104,7 +104,7 @@ const showCharItems = async (char) => {
                 console.log("event target: ", event.target);
             })
 
-            inputDiv.appendChild(input, submitButton);
+            inputDiv.append(input, submitButton);
 
             qty.innerHTML = (`${values[1]}`);
             ciDiv.appendChild(item, qty, inputDiv);
