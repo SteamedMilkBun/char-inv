@@ -30,10 +30,15 @@
 }
 
 #ciDiv {
-    display: flex;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+        "ciProperties ciProperties ciProperties";
 }
 
 .ciProperties {
     border-style: solid;
     border-radius: 5px;
+    padding: 1em 1em;
 }
